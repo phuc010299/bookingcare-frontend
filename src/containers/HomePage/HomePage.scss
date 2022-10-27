@@ -1,0 +1,225 @@
+.slick-prev {
+    left            : -10px !important;
+    width           : 48px !important;
+    height          : 44px !important;
+    z-index         : 2;
+    background-color: #fff !important;
+    border          : 2px solid #d7d7d7 !important;
+
+    &:hover {
+        background: #eceaea !important;
+    }
+
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-family: FontAwesome !important;
+    color      : red !important;
+}
+
+.slick-next {
+    right           : -10px !important;
+    width           : 48px !important;
+    height          : 44px !important;
+    z-index         : 2;
+    background-color: #fff !important;
+    border          : 2px solid #d7d7d7 !important;
+
+    &:hover {
+        background: #eceaea !important;
+    }
+}
+
+.section-share {
+    &.section-specialty {
+        background-color: #f5f5f5;
+    }
+
+    &.section-medical-facility {
+        background-color: #fff;
+        height          : 380px;
+
+    }
+
+    &.section-outstanding-doctor {
+        background-color: #f5f5f5;
+
+    }
+
+    &.section-handbook {
+        background-color: #fff;
+
+    }
+
+    &.section-about {
+        background-color: #f5f5f5;
+    }
+}
+
+
+.section-body {
+    height: 200px;
+
+    .section-customize {
+        display        : flex;
+        margin         : 0;
+        justify-content: space-between;
+        text-decoration: none;
+        color          : black;
+
+        &.section-outstanding-doctor {
+            border          : 1px solid #eee;
+            background-color: #fff;
+            text-align      : center;
+            padding         : 10px 0 25px;
+            width           : 278px !important;
+        }
+
+        .img-customize {
+            height             : 156px;
+            width              : 278px;
+            background-position: center center;
+            background-repeat  : no-repeat;
+            background-size    : cover;
+
+            &.section-specialty {
+                background-image: url('../../assets/specialty/image_1.jpeg');
+
+            }
+
+            &.section-medical-facility {
+
+                background-image: url('../../assets/medicalFacility/bv_viet_duc.jpeg');
+            }
+
+
+            &.section-outstanding-doctor {
+                background-image: url('../../assets/outstandingDoctor/doctor_check.jpeg');
+                border-radius   : 50%;
+                height          : 120px;
+                width           : 120px;
+                margin          : 0 auto;
+
+            }
+
+            &.section-handbook {
+
+                background-image: url('../../assets/handbook/handbook.jpeg');
+            }
+        }
+
+        h3 {
+            padding  : 5px 0;
+            font-size: 15px;
+        }
+
+        h4 {
+            font-size: 13px;
+            padding  : 0 0 5px;
+        }
+    }
+}
+
+
+
+.section-container {
+    height        : 326px;
+    width         : 1160px;
+    margin        : 0 auto;
+    display       : flex;
+    flex-direction: column;
+    padding-top   : 20px;
+    padding-bottom: 30px;
+
+    &.section-outstanding-doctor {
+        height: 380px;
+        width : 1160px;
+    }
+
+    &.section-about {
+        height: 467px !important;
+        width : 1160px;
+    }
+
+    .section-header {
+        height       : 56px;
+        margin-top   : 15px;
+        margin-bottom: 20px;
+
+        span {
+            font-size  : 24px;
+            font-weight: bold;
+            padding    : 15px 0px 5px 0px;
+        }
+
+        button {
+            float           : right;
+            padding         : 10px 15px;
+            border          : none;
+            outline         : none;
+            display         : block;
+            background-color: #ebebeb;
+            color           : black;
+
+            &:hover {
+                color           : #fff;
+                background-color: #f7d800;
+            }
+        }
+
+    }
+}
+
+.home-footer {
+    text-align      : center;
+    padding-top     : 10px;
+    background-color: #64b9e5;
+    height          : 78px;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.section-content {
+    display: flex;
+
+    .content-left {
+        width: 50%;
+    }
+
+    .content-right {
+        display        : flex;
+        justify-content: center;
+
+        .ictnews {
+            width              : 127px;
+            height             : 50px;
+            background-size    : 107px 30px;
+            background-position: center center;
+            background-repeat  : no-repeat;
+            background-image   : url('../../assets/about/ictnews.png');
+        }
+
+        .vtv1 {
+            width              : 106px;
+            height             : 50px;
+            background-size    : 86px 30px;
+            background-position: center center;
+            background-repeat  : no-repeat;
+            background-image   : url('../../assets/about/vtv1.png');
+        }
+
+        .vnexpress {
+            width              : 183px;
+            height             : 50px;
+            background-size    : 163px 30px;
+            background-position: center center;
+            background-repeat  : no-repeat;
+            background-image   : url('../../assets/about/vnexpress.png');
+        }
+
+    }
+
+}
