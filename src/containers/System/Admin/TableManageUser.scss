@@ -1,0 +1,58 @@
+table {
+    font-family    : arial, sans-serif;
+    border-collapse: collapse;
+    width          : 100%;
+}
+
+td,
+th {
+    border    : 1px solid #dddddd;
+    text-align: left;
+    padding   : 8px;
+
+    .btn-edit {
+        background: transparent;
+        color     : orange;
+        border    : none;
+        width     : 50px;
+        outline   : none;
+    }
+
+    .btn-edit:hover {
+        background-color: transparent;
+        color           : orange;
+    }
+
+    .btn-delete {
+        background: transparent;
+        color     : red;
+        border    : none;
+        width     : 50px;
+        outline   : none;
+    }
+
+    .btn-delete:hover {
+        background-color: transparent;
+        color           : red;
+    }
+}
+
+.modal-content {
+    .modal-header {
+        button {
+
+            color           : white;
+            background-color: transparent;
+            font-size       : 24px;
+            border          : none;
+            outline         : none;
+        }
+    }
+}
+
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+// .modal-user-container {}

@@ -30,7 +30,7 @@ class Menu extends Component {
             <li className={"menu" + (hasSubMenu ? " has-sub-menu" : "") + ("") + (active ? " active" : "")}>
                 {hasSubMenu ? (
                     <Fragment>
-                        <span
+                        <a
                             data-toggle="collapse"
                             className={"menu-link collapsed"}
                             onClick={onClick}
@@ -40,7 +40,7 @@ class Menu extends Component {
                             <div className="icon-right">
                                 <i className={"far fa-angle-right"} />
                             </div>
-                        </span>
+                        </a>
                         <div>
                             <ul className="sub-menu-list list-unstyled">
                                 {children}
@@ -48,10 +48,10 @@ class Menu extends Component {
                         </div>
                     </Fragment>
                 ) : (
-                        <Link to={link} className="menu-link" onClick={onLinkClick}>
-                            <FormattedMessage id={name} />
-                        </Link>
-                    )}
+                    <Link to={link} className="menu-link" onClick={onLinkClick}>
+                        <FormattedMessage id={name} />
+                    </Link>
+                )}
             </li>
         );
     }

@@ -1,5 +1,4 @@
 import axios from '../axios';
-import * as queryString from 'query-string';
 
 const userService = {
     handleLoginApi(email, password) {
@@ -11,7 +10,6 @@ const userService = {
     },
 
     createNewUserService(data) {
-        console.log('check data from service', data);
         return axios.post('/api/create-new-user', data);
 
     },
@@ -23,6 +21,10 @@ const userService = {
 
     editUserService(user) {
         return axios.put('/api/edit-user', user);
+
+    },
+    getAllcodeService(inputType) {
+        return axios.get(`/api/allcode?type=${inputType}`);
 
     }
 

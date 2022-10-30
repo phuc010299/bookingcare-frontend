@@ -14,12 +14,13 @@ class HomeHeader extends Component {
 
     render() {
         let language = this.props.language
+
         return (
             <React.Fragment>
                 <div className='home-header-container'>
                     <div className='home-header-content'>
                         <div className='left-content'>
-                            <i class="fas fa-bars"></i>
+                            <i className="fas fa-bars"></i>
                             <div className='header-logo'></div>
                         </div>
                         <ul className='center-content'>
@@ -57,7 +58,7 @@ class HomeHeader extends Component {
                         </ul>
                         <div className='right-content'>
                             <a className='support'>
-                                <i class="fas fa-question-circle"></i>
+                                <i className="fas fa-question-circle"></i>
                                 <span>
                                     <FormattedMessage id="homeheader.support" />
                                 </span>
@@ -74,7 +75,7 @@ class HomeHeader extends Component {
                         <h1><FormattedMessage id="banner.title1" /></h1>
                         <h2><FormattedMessage id="banner.title2" /></h2>
                         <div className='search'>
-                            <i class="fas fa-search"></i>
+                            <i className="fas fa-search"></i>
                             <input type='text' placeholder='Khám chuyên khoa' />
                         </div>
                     </div>
@@ -82,40 +83,40 @@ class HomeHeader extends Component {
                         <ul className='option'>
                             <li className='option-child'>
                                 <a>
-                                    <div className='child-icon'><i class="far fa-hospital"></i></div>
+                                    <div className='child-icon'><i className="far fa-hospital"></i></div>
                                     <div className='child-content'><FormattedMessage id="banner.child1" /></div>
                                 </a>
                             </li>
                             <li className='option-child'>
                                 <a>
-                                    <div className='child-icon'><i class="fas fa-mobile-alt"></i></div>
+                                    <div className='child-icon'><i className="fas fa-mobile-alt"></i></div>
                                     <div className='child-content'><FormattedMessage id="banner.child2" /></div>
 
                                 </a>
                             </li>
                             <li className='option-child'>
                                 <a>
-                                    <div className='child-icon'><i class="fas fa-stethoscope"></i></div>
+                                    <div className='child-icon'><i className="fas fa-stethoscope"></i></div>
                                     <div className='child-content'><FormattedMessage id="banner.child3" /></div>
 
                                 </a>
                             </li>
                             <li className='option-child'>
                                 <a>
-                                    <div className='child-icon'><i class="fas fa-prescription-bottle"></i></div>
+                                    <div className='child-icon'><i className="fas fa-prescription-bottle"></i></div>
                                     <div className='child-content'><FormattedMessage id="banner.child4" /></div>
 
                                 </a>
                             </li>
                             <li className='option-child'>
                                 <a>
-                                    <div className='child-icon'><i class="fas fa-user-md"></i></div>
+                                    <div className='child-icon'><i className="fas fa-user-md"></i></div>
                                     <div className='child-content'><FormattedMessage id="banner.child5" /></div>
                                 </a>
                             </li>
                             <li className='option-child'>
                                 <a>
-                                    <div className='child-icon'><i class="fas fa-notes-medical"></i></div>
+                                    <div className='child-icon'><i className="fas fa-notes-medical"></i></div>
                                     <div className='child-content'><FormattedMessage id="banner.child6" /></div>
 
                                 </a>
@@ -135,7 +136,9 @@ class HomeHeader extends Component {
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
-        language: state.app.language
+        userInfo: state.user.userInfo,
+        language: state.app.language,
+
 
     };
 };
