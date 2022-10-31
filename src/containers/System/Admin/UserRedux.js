@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { LANGUAGES, CRUD_ACTIONS } from '../../../utils'
+import { LANGUAGES, CRUD_ACTIONS, CommonUtils } from '../../../utils'
 // import { FormattedMessage } from 'react-intl';
 import * as actions from '../../../store/actions'
 import './UserRedux.scss'
@@ -83,25 +83,26 @@ class UserRedux extends Component {
                 position: arrPosition && arrPosition.length > 0 ? arrPosition[0].keyMap : '',
                 role: arrRole && arrRole.length > 0 ? arrRole[0].keyMap : '',
                 avatar: '',
+                previewImgUrl: '',
                 action: CRUD_ACTIONS.CREATE
-
             })
         }
     }
 
-    handleOnchangeImg = (event) => {
+    handleOnchangeImg = async (event) => {
         let data = event.target.files;
         let file = data[0]
 
         if (file) {
+            let base64 = await CommonUtils.getBase64(file)
             let objectUrl = URL.createObjectURL(file)
+
             this.setState({
                 previewImgUrl: objectUrl,
-                avatar: file
+                avatar: base64
             })
         }
     }
-
     openPreviewImg = () => {
         if (!this.state.previewImgUrl) return
         this.setState({
@@ -126,6 +127,7 @@ class UserRedux extends Component {
                 gender: this.state.gender,
                 roleId: this.state.role,
                 positionId: this.state.position,
+                avatar: this.state.avatar
             })
         }
 
@@ -141,6 +143,8 @@ class UserRedux extends Component {
                 gender: this.state.gender,
                 roleId: this.state.role,
                 positionId: this.state.position,
+                avatar: this.state.avatar,
+
             })
         }
 
@@ -169,7 +173,11 @@ class UserRedux extends Component {
     }
 
     handleEditUserFromParent = (user) => {
-        console.log('check handle edit user from parent', user)
+        let imageBase64 = ''
+        if (user.image) {
+            imageBase64 = new Buffer(user.image, 'base64').toString('binary');
+        }
+
         this.setState({
             email: user.email,
             password: 'HARDCODE',
@@ -181,8 +189,9 @@ class UserRedux extends Component {
             position: user.positionId,
             role: user.roleId,
             userId: user.id,
-            // avatar: user.avatar,
-            action: CRUD_ACTIONS.EDIT
+            avatar: '',
+            action: CRUD_ACTIONS.EDIT,
+            previewImgUrl: imageBase64
         })
     }
 
@@ -325,7 +334,6 @@ class UserRedux extends Component {
                                     <div className='preview-img-container'>
                                         <input type="file" id="previewImg" hidden
                                             onChange={(event) => this.handleOnchangeImg(event)}
-
                                         />
                                         <label className='label-upload' htmlFor='previewImg'>Tải ảnh <i className="fas fa-upload"></i></label>
                                         <div
