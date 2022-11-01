@@ -12,7 +12,7 @@
         "welcome": "Welcome, "
     },
     "banner": {
-        "title1": "MEDICAL BACKGROUND",
+        "title1": "MEDICAL PLATFORM",
         "title2": "COMPREHENSIVE HEALTH CARE",
         "child1": "Specialist Examination",
         "child2": "Remote examination",
@@ -50,5 +50,9 @@
         "image": "Avatar",
         "save": "Save",
         "edit": "Edit"
+    },
+    "homePage": {
+        "outstanding-doctor": "Featured doctor of the week",
+        "more-infor": "More Infor"
     }
 }
