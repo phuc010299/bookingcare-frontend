@@ -9,7 +9,6 @@ class About extends Component {
 
     render() {
         let settings = this.props.settings
-        console.log('check settings', settings)
 
         return (
             <div className='section-share section-about'>

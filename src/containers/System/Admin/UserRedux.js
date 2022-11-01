@@ -284,13 +284,11 @@ class UserRedux extends Component {
                                         }
                                     </select>
                                 </div>
-
                                 <div className="form-group col-md-4">
-                                    <label for="inputState"><FormattedMessage id='manage-user.role' /></label>
+                                    <label for="inputState"><FormattedMessage id='manage-user.position' /></label>
                                     <select id="inputState" className="form-control"
-                                        onChange={(event) => this.onChangeInput(event, 'role')}
+                                        onChange={(event) => this.onChangeInput(event, 'position')}
                                         value={position}
-
                                     >
                                         {positions && positions.length > 0 &&
                                             positions.map((item, index) => {
@@ -298,6 +296,7 @@ class UserRedux extends Component {
                                                     <option key={index} value={item.keyMap}>{
                                                         language === LANGUAGES.VI ? item.valueVi : item.valueEn
                                                     }</option>
+
                                                 )
 
 
@@ -305,12 +304,12 @@ class UserRedux extends Component {
                                         }
                                     </select>
                                 </div>
-
                                 <div className="form-group col-md-4">
-                                    <label for="inputState"><FormattedMessage id='manage-user.position' /></label>
+                                    <label for="inputState"><FormattedMessage id='manage-user.role' /></label>
                                     <select id="inputState" className="form-control"
-                                        onChange={(event) => this.onChangeInput(event, 'position')}
+                                        onChange={(event) => this.onChangeInput(event, 'role')}
                                         value={role}
+
                                     >
                                         {roles && roles.length > 0 &&
                                             roles.map((item, index) => {
@@ -318,7 +317,6 @@ class UserRedux extends Component {
                                                     <option key={index} value={item.keyMap}>{
                                                         language === LANGUAGES.VI ? item.valueVi : item.valueEn
                                                     }</option>
-
                                                 )
 
 
@@ -326,6 +324,8 @@ class UserRedux extends Component {
                                         }
                                     </select>
                                 </div>
+
+
 
                             </div>
                             <div className='form-row'>

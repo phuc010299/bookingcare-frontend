@@ -216,4 +216,30 @@ export const editUserFailed = () => ({
 })
 
 
+export const fetchTopDoctor = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.getTopDoctorHome('8')
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_TOP_DOCTORS_SUCCESS,
+                    dataDoctors: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_TOP_DOCTORS_FAILED
+                })
+            }
 
+        } catch (error) {
+            console.log(error)
+            dispatch({
+                type: actionTypes.FETCH_TOP_DOCTORS_FAILED
+            })
+
+        }
+    }
+}
+
+
+// let res1 = await userService.getTopDoctorHome(3);
