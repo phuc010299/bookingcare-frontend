@@ -46,7 +46,6 @@ class TableManageUser extends Component {
     }
 
     handleEditUser(user) {
-        console.log('check edit user', user)
         this.props.handleEditUserFromParentKey(user)
     }
 
@@ -81,7 +80,7 @@ class TableManageUser extends Component {
                         })}
                     </tbody>
                 </table >
-                <MdEditor style={{ height: '300px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
+                <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
 
             </React.Fragment>
 

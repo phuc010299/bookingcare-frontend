@@ -242,4 +242,58 @@ export const fetchTopDoctor = () => {
 }
 
 
+
+export const fetchAllDoctors = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.getAllDoctors()
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_DOCTORS_SUCCESS,
+                    dataAllDoctors: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_DOCTORS_FAILED
+                })
+            }
+
+        } catch (error) {
+            console.log(error)
+            dispatch({
+                type: actionTypes.FETCH_ALL_DOCTORS_FAILED
+            })
+
+        }
+    }
+}
+
+export const saveDetailDoctors = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.saveDetailDoctors(data)
+            console.log('check response', res)
+            if (res && res.errCode === 0) {
+                toast.success("SAVE DEATAIL DOCTOR SUCCESS");
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_DOCTORS_SUCCESS,
+                })
+            } else {
+                toast.error("SAVE DEATAIL DOCTOR FAILED");
+
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_DOCTORS_FAILED
+                })
+            }
+
+        } catch (error) {
+            console.log(error)
+            dispatch({
+                type: actionTypes.SAVE_DETAIL_DOCTORS_FAILED
+            })
+
+        }
+    }
+}
+
 // let res1 = await userService.getTopDoctorHome(3);

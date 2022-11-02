@@ -29,8 +29,14 @@ const userService = {
     },
     getTopDoctorHome(limit) {
         return axios.get(`/api/top-doctor-home?limit=${limit}`)
+    },
+    getAllDoctors() {
+        return axios.get(`/api/get-all-doctors`)
+    },
+    // router.post('/api/save-infor-doctors', doctorController.postInforDoctors)
+    saveDetailDoctors(data) {
+        return axios.post('/api/save-infor-doctors', data)
     }
-
 
 
 }
