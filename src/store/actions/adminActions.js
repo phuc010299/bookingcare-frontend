@@ -31,8 +31,6 @@ export const fetchGenderFailed = () => ({
     type: actionTypes.FETCH_GENDER_FAILED,
 })
 
-
-
 // position
 
 export const fetchPositionStart = () => {
@@ -241,8 +239,6 @@ export const fetchTopDoctor = () => {
     }
 }
 
-
-
 export const fetchAllDoctors = () => {
     return async (dispatch, getState) => {
         try {
@@ -272,7 +268,6 @@ export const saveDetailDoctors = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await userService.saveDetailDoctors(data)
-            console.log('check response', res)
             if (res && res.errCode === 0) {
                 toast.success("SAVE DEATAIL DOCTOR SUCCESS");
                 dispatch({
@@ -296,4 +291,64 @@ export const saveDetailDoctors = (data) => {
     }
 }
 
-// let res1 = await userService.getTopDoctorHome(3);
+export const fetchAllcodeScheduleTime = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.getAllcodeService('TIME')
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
+                    dataTime: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED
+                })
+            }
+
+        } catch (error) {
+            console.log(error)
+            dispatch({
+                type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED
+            })
+
+        }
+    }
+}
+
+
+export const getRequiredDoctorInfor = () => {
+    return async (dispatch, getState) => {
+        try {
+            let resPrice = await userService.getAllcodeService("PRICE")
+            let resPayment = await userService.getAllcodeService("PAYMENT")
+            let resProvince = await userService.getAllcodeService("PROVINCE")
+            if (resPrice && resPrice.errCode === 0 &&
+                resPayment && resPayment.errCode === 0 &&
+                resProvince && resProvince.errCode === 0
+            ) {
+                let data = {
+                    resPrice: resPrice.data,
+                    resPayment: resPayment.data,
+                    resProvince: resProvince.data,
+                }
+                dispatch(getRequiredDoctorInforSuccess(data))
+            } else {
+                dispatch(getRequiredDoctorInforSuccessFailed())
+
+            }
+        } catch (error) {
+            dispatch(getRequiredDoctorInforSuccessFailed())
+            console.log('fetchGenderStart', error)
+        }
+    }
+}
+
+export const getRequiredDoctorInforSuccess = (allRequiredDoctorData) => ({
+    type: actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_SUCCESS,
+    data: allRequiredDoctorData
+})
+
+export const getRequiredDoctorInforSuccessFailed = () => ({
+    type: actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_FAILED,
+})

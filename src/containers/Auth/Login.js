@@ -30,7 +30,9 @@ class Login extends Component {
         this.setState({
             password: event.target.value
         })
+        console.log(event.keyCode)
     }
+
 
     async handleLogin() {
         this.setState({
@@ -46,7 +48,6 @@ class Login extends Component {
             }
             if (data && data.errCode == 0) {
                 this.props.userLoginSuccess(data.user)
-                console.log('Login success')
             }
 
         } catch (error) {
@@ -57,7 +58,6 @@ class Login extends Component {
                     })
                 }
             }
-            console.log('hoidanit', error.response)
         }
     }
 
@@ -65,6 +65,13 @@ class Login extends Component {
         this.setState({
             isShowPassword: !this.state.isShowPassword
         })
+    }
+    handleOnKeyDown(event) {
+
+        if (event.keyCode === 13) {
+            this.handleLogin()
+        }
+
     }
 
     render() {
@@ -82,6 +89,8 @@ class Login extends Component {
                                 placeholder='Enter your username'
                                 value={this.state.username}
                                 onChange={(event) => this.handleOnChangeUsername(event)}
+                                onKeyDown={(event) => this.handleOnKeyDown(event)}
+
                             />
                         </div>
                         <div className='col-12 form-group login-input'>
@@ -93,16 +102,16 @@ class Login extends Component {
                                     placeholder='Enter your username'
                                     value={this.state.password}
                                     onChange={(event) => this.handleOnChangePassword(event)}
+                                    onKeyDown={(event) => this.handleOnKeyDown(event)}
                                 />
 
                                 <span onClick={() => this.handleShowHidePassword()}>
                                     <i className={this.state.isShowPassword ? "far fa-eye-slash" : "far fa-eye"} ></i>
-
                                 </span>
                             </div>
                         </div>
 
-                        <div className='col-12' style={{ collor: "red" }}>
+                        <div className='col-12' style={{ collor: 'red' }}>
                             {this.state.errMessage}
                         </div>
 

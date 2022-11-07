@@ -36,6 +36,19 @@ const userService = {
     // router.post('/api/save-infor-doctors', doctorController.postInforDoctors)
     saveDetailDoctors(data) {
         return axios.post('/api/save-infor-doctors', data)
+    },
+    getDetailInforDoctor(id) {
+        return axios.get(`/api/get-detail-doctor-by-id?id=${id}`)
+    },
+    bulkCreateSchedule(data) {
+        return axios.post('/api/bulk-create-schedule', data)
+    },
+    // router.get('/api/get-schedule-doctor-by-date', doctorController.getScheduleByDate)
+    getScheduleByDate(doctorId, date) {
+        return axios.get(`/api/get-schedule-doctor-by-date?doctorId=${doctorId}&date=${date}`)
+    },
+    getExtraInforDoctorById(doctorId) {
+        return axios.get(`/api/get-extra-infor-doctor-by-id?doctorId=${doctorId}`)
     }
 
 

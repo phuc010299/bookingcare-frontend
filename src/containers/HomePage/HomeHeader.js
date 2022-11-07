@@ -70,63 +70,64 @@ class HomeHeader extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='home-header-banner'>
-                    <div className='home-header-search'>
-                        <h1><FormattedMessage id="banner.title1" /></h1>
-                        <h2><FormattedMessage id="banner.title2" /></h2>
-                        <div className='search'>
-                            <i className="fas fa-search"></i>
-                            <input type='text' placeholder='Khám chuyên khoa' />
+                {this.props.isShowBanner &&
+                    <div className='home-header-banner'>
+                        <div className='home-header-search'>
+                            <h1><FormattedMessage id="banner.title1" /></h1>
+                            <h2><FormattedMessage id="banner.title2" /></h2>
+                            <div className='search'>
+                                <i className="fas fa-search"></i>
+                                <input type='text' placeholder='Khám chuyên khoa' />
+                            </div>
                         </div>
-                    </div>
-                    <div className='home-header-option'>
-                        <ul className='option'>
-                            <li className='option-child'>
-                                <a>
-                                    <div className='child-icon'><i className="far fa-hospital"></i></div>
-                                    <div className='child-content'><FormattedMessage id="banner.child1" /></div>
-                                </a>
-                            </li>
-                            <li className='option-child'>
-                                <a>
-                                    <div className='child-icon'><i className="fas fa-mobile-alt"></i></div>
-                                    <div className='child-content'><FormattedMessage id="banner.child2" /></div>
+                        <div className='home-header-option'>
+                            <ul className='option'>
+                                <li className='option-child'>
+                                    <a>
+                                        <div className='child-icon'><i className="far fa-hospital"></i></div>
+                                        <div className='child-content'><FormattedMessage id="banner.child1" /></div>
+                                    </a>
+                                </li>
+                                <li className='option-child'>
+                                    <a>
+                                        <div className='child-icon'><i className="fas fa-mobile-alt"></i></div>
+                                        <div className='child-content'><FormattedMessage id="banner.child2" /></div>
 
-                                </a>
-                            </li>
-                            <li className='option-child'>
-                                <a>
-                                    <div className='child-icon'><i className="fas fa-stethoscope"></i></div>
-                                    <div className='child-content'><FormattedMessage id="banner.child3" /></div>
+                                    </a>
+                                </li>
+                                <li className='option-child'>
+                                    <a>
+                                        <div className='child-icon'><i className="fas fa-stethoscope"></i></div>
+                                        <div className='child-content'><FormattedMessage id="banner.child3" /></div>
 
-                                </a>
-                            </li>
-                            <li className='option-child'>
-                                <a>
-                                    <div className='child-icon'><i className="fas fa-prescription-bottle"></i></div>
-                                    <div className='child-content'><FormattedMessage id="banner.child4" /></div>
+                                    </a>
+                                </li>
+                                <li className='option-child'>
+                                    <a>
+                                        <div className='child-icon'><i className="fas fa-prescription-bottle"></i></div>
+                                        <div className='child-content'><FormattedMessage id="banner.child4" /></div>
 
-                                </a>
-                            </li>
-                            <li className='option-child'>
-                                <a>
-                                    <div className='child-icon'><i className="fas fa-user-md"></i></div>
-                                    <div className='child-content'><FormattedMessage id="banner.child5" /></div>
-                                </a>
-                            </li>
-                            <li className='option-child'>
-                                <a>
-                                    <div className='child-icon'><i className="fas fa-notes-medical"></i></div>
-                                    <div className='child-content'><FormattedMessage id="banner.child6" /></div>
+                                    </a>
+                                </li>
+                                <li className='option-child'>
+                                    <a>
+                                        <div className='child-icon'><i className="fas fa-user-md"></i></div>
+                                        <div className='child-content'><FormattedMessage id="banner.child5" /></div>
+                                    </a>
+                                </li>
+                                <li className='option-child'>
+                                    <a>
+                                        <div className='child-icon'><i className="fas fa-notes-medical"></i></div>
+                                        <div className='child-content'><FormattedMessage id="banner.child6" /></div>
 
-                                </a>
-                            </li>
-                        </ul>
+                                    </a>
+                                </li>
+                            </ul>
 
-                    </div>
+                        </div>
 
 
-                </div>
+                    </div>}
             </React.Fragment>
         );
     }

@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import Slider from 'react-slick';
 import * as actions from '../../../store/actions'
-import { LANGUAGES } from '../../../utils'
+import { LANGUAGES } from '../../../utils';
+import { withRouter } from 'react-router-dom';
+
 
 
 
@@ -24,10 +26,15 @@ class OutstandingDoctor extends Component {
         }
     }
 
-
-
     componentDidMount() {
         this.props.loadTopDoctor()
+    }
+
+
+    handleViewDetailDoctor = (doctor) => {
+        console.log('check value of item', doctor)
+        this.props.history.push(`/detail-doctor/${doctor.id}`)
+
     }
 
 
@@ -56,11 +63,16 @@ class OutstandingDoctor extends Component {
 
                                 return (
 
-                                    <a className='section-customize section-outstanding-doctor' key={index}>
+                                    <a
+                                        className='section-customize section-outstanding-doctor'
+                                        key={index}
+                                        onClick={() => this.handleViewDetailDoctor(item)}
+                                    >
                                         <div className='img-customize section-outstanding-doctor'
                                             style={{ backgroundImage: `url(${imageBase64})` }}></div>
                                         <h3>
                                             {language === LANGUAGES.VI ? nameVi : nameEn}
+
 
                                         </h3>
                                         <h4>Tiêu hoá</h4>
@@ -93,4 +105,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor));

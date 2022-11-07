@@ -35,4 +35,19 @@
             opacity: 0.8;
         }
     }
+
+    .create-content-doctor {
+        margin             : 20px 0 30px;
+        border-radius      : 3px;
+        outline            : none;
+        border             : none;
+        padding            : 5px;
+        // background-color: blue;
+        // color           : white;
+
+        &:hover {
+            cursor : pointer;
+            opacity: 0.8;
+        }
+    }
 }
