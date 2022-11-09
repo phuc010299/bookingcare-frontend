@@ -73,10 +73,23 @@
         },
         "extra-infor-doctor": {
             "text-address": "Địa chỉ khám",
-            "price": "Giá khám",
+            "price": "Giá khám: ",
             "date": "Xem chi tiết",
             "payment": "Khách hàng có thể thanh toán theo: ",
             "hide-price": "Ẩn bảng giá"
+        },
+        "booking-modal": {
+            "title": "Thông tin đặt lịch khám bệnh",
+            "fullName": "Họ và tên",
+            "phoneNumber": "Số điện thoại",
+            "email": "Địa chỉ email",
+            "address": "Địa chỉ liên lạc",
+            "reason": "Lý do khám bệnh",
+            "birthday": "Ngày sinh",
+            "gender": "Giới tính",
+            "btnConfirm": "Xác nhận",
+            "btnCancel": "Huỷ bỏ",
+            "priceBooking": "Miễn phí đặt lịch"
         }
     },
     "admin": {

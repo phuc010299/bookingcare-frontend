@@ -56,7 +56,6 @@ class DetailDoctor extends Component {
                 <HomeHeader isShowBanner={false} />
                 <div className='doctor-detail-container'>
                     <div className='intro-doctor'>
-
                         <div className='content-left' style={{ backgroundImage: `url(${detailDoctor.image ? detailDoctor.image : ''})` }} >
                         </div>
                         <div className='content-right'>

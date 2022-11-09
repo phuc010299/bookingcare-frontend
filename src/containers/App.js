@@ -15,6 +15,7 @@ import HomePage from '../containers/HomePage/HomePage';
 import CustomScrollbars from '../components/CustomScrollbars';
 import DetailDoctor from './Patient/doctor/DetailDoctor';
 import Doctor from '../routes/Doctor';
+import VerifyEmail from './Patient/VerifyEmail';
 class App extends Component {
 
     handlePersistorState = () => {
@@ -47,9 +48,10 @@ class App extends Component {
                                     <Route path={path.HOME} exact component={(Home)} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
-                                    <Route path={path.HOMEPAGE} exact component={(HomePage)} />
+                                    <Route path={path.DOCTOR} component={userIsAuthenticated(Doctor)} />
                                     <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
-                                    <Route path={path.DOCTOR} component={Doctor} />
+                                    <Route path={path.HOMEPAGE} exact component={(HomePage)} />
+                                    <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
                                 </Switch>
                             </CustomScrollbars>
                         </span>

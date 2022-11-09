@@ -26,7 +26,9 @@ class DefaultClass extends Component {
         }
     }
     render() {
-
+        return (
+            <div></div>
+        )
     }
 }
 

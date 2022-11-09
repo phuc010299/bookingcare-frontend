@@ -10,8 +10,6 @@ import { FormattedMessage } from 'react-intl';
 import NumberFormat from 'react-number-format';
 
 
-
-
 class DoctorExtraInfor extends Component {
 
     constructor(props) {
@@ -52,12 +50,7 @@ class DoctorExtraInfor extends Component {
     render() {
         let { language } = this.props;
         let { isShowDetailInfor, extraInfor } = this.state
-        console.log('check extra infor', extraInfor)
-        // "text-address": "Địa chỉ khám",
-        //     "price": "Giá khám",
-        //     "date": "Xem chi tiết",
-        //     "payment": "Khách hàng có thể thanh toán theo: ",
-        //     "hide-price":
+
         return (
             <div className='doctor-extra-infor-container'>
                 <div className='content-up'>
@@ -123,8 +116,11 @@ class DoctorExtraInfor extends Component {
                             </div>
                             <div className='payment'>
                                 <FormattedMessage id="patient.extra-infor-doctor.payment" />
-                                {extraInfor.paymentTypeData && language === LANGUAGES.VI ?
-                                    extraInfor.paymentTypeData.valueVi : extraInfor.paymentTypeData.valueEn
+                                {extraInfor.paymentTypeData && language === LANGUAGES.VI &&
+                                    extraInfor.paymentTypeData.valueVi
+                                }
+                                {extraInfor.paymentTypeData && language === LANGUAGES.EN &&
+                                    extraInfor.paymentTypeData.valueEn
                                 }
 
                             </div>

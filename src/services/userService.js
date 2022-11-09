@@ -49,7 +49,20 @@ const userService = {
     },
     getExtraInforDoctorById(doctorId) {
         return axios.get(`/api/get-extra-infor-doctor-by-id?doctorId=${doctorId}`)
+    },
+    getProfileDoctorById(doctorId) {
+        return axios.get(`/api/get-profile-doctor-by-id?doctorId=${doctorId}`)
+    },
+    postPatientBookAppointment(data) {
+        return axios.post('/api/patient-book-appointment', data)
+    },
+    postVerifyBookAppointment(data) {
+        return axios.post('/api/verify-book-appointment', data)
+    },
+    createSpecialty(data) {
+        return axios.post('/api/create-new-specialty', data)
     }
+
 
 
 }
