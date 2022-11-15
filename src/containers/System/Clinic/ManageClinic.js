@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { LANGUAGES, CommonUtils } from '../../../utils'
 import HomeHeader from '../../HomePage/HomeHeader';
 import { FormattedMessage } from 'react-intl';
-import './ManageSpecialty.scss';
+import './ManageClinic.scss';
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import userService from '../../../services/userService';
@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
-class ManageSpecialty extends Component {
+class ManageClinic extends Component {
 
     constructor(props) {
         super(props);
@@ -21,7 +21,8 @@ class ManageSpecialty extends Component {
             name: '',
             imageBase64: '',
             descriptionHTML: '',
-            descriptionMarkdown: ''
+            descriptionMarkdown: '',
+            address: '',
         }
     }
 
@@ -64,29 +65,31 @@ class ManageSpecialty extends Component {
         }
     }
 
-    handleSaveNewSpecialty = async () => {
-        let res = await userService.createSpecialty(this.state)
+    handleSaveNewClinic = async () => {
+        let res = await userService.createClinic(this.state)
         if (res && res.errCode === 0) {
-            toast.success('create specialty succeed')
+            toast.success('create clinic succeed')
             this.setState({
                 name: '',
                 imageBase64: '',
                 descriptionHTML: '',
                 descriptionMarkdown: '',
+                address: '',
             })
         } else {
-            toast.error('create specialty failed')
+            toast.error('create clinic failed')
         }
+        console.log('check state', this.state)
     }
 
 
     render() {
         return (
             <div className='manage-specialty-container'>
-                <div className='ms-title'>Quản lý chuyên khoa</div>
+                <div className='ms-title'>Quản lý phòng khám</div>
                 <div className='add-new-specialty row'>
                     <div className='col-6 form-group'>
-                        <label>Tên chuyên khoa</label>
+                        <label>Tên phòng khám</label>
                         <input
                             className='form-control'
                             value={this.state.name}
@@ -94,14 +97,23 @@ class ManageSpecialty extends Component {
                         />
                     </div>
                     <div className='col-6 form-group'>
-                        <label>Ảnh chuyên khoa</label>
+                        <label>Ảnh phòng khám</label>
                         <input
                             className='form-control-file'
                             type='file'
                             onChange={(event) => this.handleOnchangeImg(event)}
                         />
                     </div>
-                    <div className='col-12 md-edit'>
+                    <div className='col-6 form-group'>
+                        <label>Địa chỉ phòng khám</label>
+                        <input
+                            className='form-control'
+                            onChange={(event) => this.handleOnchangeInput(event, 'address')}
+                            value={this.state.address}
+
+                        />
+                    </div>
+                    <div className='col-12'>
                         <MdEditor
                             style={{ height: '500px' }}
                             renderHTML={text => mdParser.render(text)}
@@ -112,7 +124,7 @@ class ManageSpecialty extends Component {
                     <div className='col-12'>
                         <button
                             className='btn-save-specialty'
-                            onClick={() => this.handleSaveNewSpecialty()}
+                            onClick={() => this.handleSaveNewClinic()}
                         >save</button>
                     </div>
                 </div>
@@ -133,4 +145,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageSpecialty);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageClinic);

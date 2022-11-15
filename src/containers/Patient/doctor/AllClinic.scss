@@ -1,0 +1,50 @@
+.all-doctor-container {
+
+    .content-select-doctor {
+
+        .select-doctor {
+            cursor: pointer;
+
+            height: calc(1.5em + 0.75rem + 15px);
+        }
+    }
+
+    .content-body {
+
+        .content-body-up {
+            font-size     : 30px;
+            font-weight   : 600;
+            text-transform: uppercase;
+            margin        : 15px;
+        }
+
+        .content-body-down {
+            display       : flex;
+            flex-direction: column;
+            margin        : 5px;
+            cursor        : pointer;
+
+            .content-child {
+                display: flex;
+                padding: 10px;
+
+                .img-doctor {
+                    background-size    : cover;
+                    background-position: center;
+                    background-repeat  : no-repeat;
+                    border-radius      : 50%;
+                    width              : 50px;
+                    height             : 50px;
+                    margin-right       : 10px;
+                }
+
+                .infor-doctor {
+                    .name-doctor {}
+
+                    .specialty-doctor {}
+                }
+            }
+
+        }
+    }
+}

@@ -71,7 +71,11 @@
         justify-content: space-between;
         text-decoration: none;
         color          : black;
-        cursor         : pointer;
+
+        &:hover {
+            cursor: pointer;
+            color : #64b9e5;
+        }
 
         &.section-outstanding-doctor {
             border          : 1px solid #eee;
@@ -88,10 +92,9 @@
             background-repeat  : no-repeat;
             background-size    : cover;
 
-            &.section-specialty {
-                background-image: url('../../assets/specialty/image_1.jpeg');
-
-            }
+            // &.section-specialty {
+            //     background-image: url('../../assets/specialty/image_1.jpeg');
+            // }
 
             &.section-medical-facility {
 
@@ -100,11 +103,11 @@
 
 
             &.section-outstanding-doctor {
-                background-image: url('../../assets/outstandingDoctor/doctor_check.jpeg');
-                border-radius   : 50%;
-                height          : 120px;
-                width           : 120px;
-                margin          : 0 auto;
+                // background-image: url('../../assets/outstandingDoctor/doctor_check.jpeg');
+                border-radius: 50%;
+                height       : 120px;
+                width        : 120px;
+                margin       : 0 auto;
 
             }
 

@@ -7,7 +7,9 @@ import localization from 'moment/locale/vi'
 import { LANGUAGES } from '../../../utils'
 import userService from '../../../services/userService';
 import { FormattedMessage } from 'react-intl';
-import BookingModal from './Modal/BookingModal'
+import BookingModal from './Modal/BookingModal';
+import LoadingOverlay from 'react-loading-overlay';
+
 
 
 
@@ -20,7 +22,7 @@ class DoctorSchedule extends Component {
             alldays: [],
             allAvailableTime: [],
             isOpenModalBooking: false,
-            dataScheduleTimeModal: {}
+            dataScheduleTimeModal: {},
         }
     }
 
@@ -30,6 +32,13 @@ class DoctorSchedule extends Component {
         this.setState({
             alldays: arrDays,
         })
+
+        let res = await userService.getScheduleByDate(this.props.doctorIdFromParent, arrDays[0].value)
+        if (res && res.errCode === 0) {
+            this.setState({
+                allAvailableTime: res.data ? res.data : []
+            })
+        }
 
 
     }
@@ -97,8 +106,10 @@ class DoctorSchedule extends Component {
             let res = await userService.getScheduleByDate(doctorId, date)
             // console.log('check schedule', res.infor.data)
             if (res && res.errCode === 0) {
+
                 this.setState({
-                    allAvailableTime: res.data ? res.data : []
+                    allAvailableTime: res.data ? res.data : [],
+                    isShowLoading: false
                 })
             }
         }
@@ -180,7 +191,9 @@ class DoctorSchedule extends Component {
                 <BookingModal
                     isOpenModal={isOpenModalBooking}
                     dataTime={dataScheduleTimeModal}
-                    closeBookingModal={this.closeBookingModal} />
+                    closeBookingModal={this.closeBookingModal}
+                />
+
 
             </>
         )

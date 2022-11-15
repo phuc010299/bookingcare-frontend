@@ -11,15 +11,10 @@
 
     .more-infor {
         display: flex;
-        gap    : 15px;
 
-        .content-left {
-            width: 40%;
-        }
+        .content-left {}
 
-        .content-right {
-            width: 60%;
-        }
+        .content-right {}
     }
 
     .save-content-doctor {

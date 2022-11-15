@@ -30,7 +30,6 @@ class Login extends Component {
         this.setState({
             password: event.target.value
         })
-        console.log(event.keyCode)
     }
 
 

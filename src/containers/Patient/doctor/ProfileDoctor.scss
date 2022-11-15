@@ -1,9 +1,9 @@
 .profile-doctor-container {
     .intro-doctor {
         display: flex;
+        padding: 10px;
 
         .content-left {
-            // width           : 20%;
             background-size    : cover;
             background-position: center;
             background-repeat  : no-repeat;
@@ -13,7 +13,7 @@
         }
 
         .content-right {
-            width         : calc(100% -80px);
+            width         : 600px;
             display       : flex;
             flex-direction: column;
             padding-left  : 10px;
@@ -26,5 +26,11 @@
                 justify-content: center;
             }
         }
+
+
+    }
+
+    .view-detail-doctor {
+        padding: 10px;
     }
 }

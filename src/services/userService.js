@@ -61,10 +61,31 @@ const userService = {
     },
     createSpecialty(data) {
         return axios.post('/api/create-new-specialty', data)
-    }
-
-
-
+    },
+    getAllSpecialties() {
+        return axios.get('/api/get-all-specialties')
+    },
+    getDetailSpecialty(id, location) {
+        return axios.get(`/api/get-detail-specialty-by-id?id=${id}&&location=${location}`)
+    },
+    createClinic(data) {
+        return axios.post('/api/create-new-clinic', data)
+    },
+    getAllClinics() {
+        return axios.get('/api/get-all-clinic')
+    },
+    getTopClinic(limit) {
+        return axios.get(`/api/get-top-clinic?limit=${limit}`)
+    },
+    getDetailClinic(id) {
+        return axios.get(`/api/get-detail-clinic-by-id?id=${id}`)
+    },
+    getListPatientForDoctor(doctorId, date) {
+        return axios.get(`/api/get-list-patient-for-doctor?doctorId=${doctorId}&&date=${date}`)
+    },
+    postSendRemedy(data) {
+        return axios.post('/api/send-remedy', data)
+    },
 }
 
 

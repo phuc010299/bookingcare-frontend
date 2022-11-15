@@ -15,7 +15,6 @@ import userService from '../../../services/userService';
 
 
 class ManageSchedule extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -80,14 +79,29 @@ class ManageSchedule extends Component {
     }
 
     handleChange = (selectedDoctor) => {
+
         this.setState({ selectedDoctor });
+        let { curentDate } = this.state
+        this.handleLoadDataSchedule(selectedDoctor, curentDate)
+
     };
 
     handleOnchangeDatePicker = (date) => {
+        let { curentDate, selectedDoctor } = this.state
         this.setState({
             curentDate: date[0]
         })
-        // this.handleOnchangeSelect(date[0])
+        this.handleLoadDataSchedule(selectedDoctor, curentDate)
+
+    }
+
+    handleLoadDataSchedule = async (doctor, date) => {
+        if (date && doctor) {
+            let formatedDate = new Date(date).getTime()
+            let res = await userService.getScheduleByDate(doctor.value, formatedDate)
+            let time = res.data
+            this.handleBtnSchedule(time)
+        }
     }
     handleClickBtn = (time) => {
         let { rangeTime } = this.state
@@ -100,7 +114,32 @@ class ManageSchedule extends Component {
                 rangeTime: rangeTime
             })
         }
+    }
+    handleBtnSchedule = (time) => {
+        let { rangeTime } = this.state
+        if (rangeTime && rangeTime.length > 0) {
+            rangeTime.map((item) => {
+                item.isSelected = false
+                if (time && time.length > 0) {
+                    time.map(timeItem => {
+                        if (item.keyMap === timeItem.timeType) item.isSelected = true
+                        return item
+                    })
+                }
+            })
+            this.setState({
+                rangeTime: rangeTime
+            })
+        }
+    }
 
+    handleLoadDataSchedule = async (doctor, date) => {
+        if (date && doctor) {
+            let formatedDate = new Date(date).getTime()
+            let res = await userService.getScheduleByDate(doctor.value, formatedDate)
+            let time = res.data
+            this.handleBtnSchedule(time)
+        }
     }
 
 
@@ -154,6 +193,7 @@ class ManageSchedule extends Component {
     render() {
         let { rangeTime } = this.state
         let { language } = this.props
+        // console.log('check state:', this.state)
         return (
             <div className='manage-schedule-container'>
                 <div className='m-s-title'>
@@ -213,8 +253,6 @@ const mapStateToProps = state => {
         allDoctors: state.admin.allDoctors,
         allScheduleTime: state.admin.allScheduleTime,
         language: state.app.language
-        // systemMenuPath: state.app.systemMenuPath,
-        // isLoggedIn: state.user.isLoggedIn
     };
 };
 

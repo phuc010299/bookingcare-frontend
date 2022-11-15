@@ -1,14 +1,17 @@
 .home-header-container {
-    height           : 77px;
-    width            : 100%;
-    padding-right    : 15px;
+    height          : 77px;
+    width           : 100%;
+    padding-right   : 100px;
+    // padding-left : 100px;
+
     // padding-left  : 15px;
-    margin-right     : auto;
-    margin-left      : auto;
-    display          : flex;
-    flex-direction   : column;
+    margin-right  : auto;
+    margin-left   : auto;
+    display       : flex;
+    flex-direction: column;
 
     .home-header-content {
+        padding   : 0 100px;
         height    : 77px;
         width     : 100%;
         display   : flex;
@@ -162,15 +165,43 @@
 
             i {
                 margin: 0 5px;
+                color : #333;
             }
 
-            input {
+            .home-header-select {
                 background-color: transparent;
                 height          : 30px;
-                width           : 100%;
                 border          : none;
                 outline         : none;
+                display         : flex;
+                align-items     : center;
+
+                .css-2b097c-container {
+                    width           : 400px;
+                    outline         : none;
+                    border          : none;
+                    background-color: #f7d800;
+
+                    .css-yk16xz-control {
+                        background-color: #f7d800;
+                        outline         : none;
+                        border          : none;
+
+
+                    }
+
+                }
+
+
             }
+
+            // input {
+            //     background-color: transparent;
+            //     height          : 30px;
+            //     width           : 100%;
+            //     border          : none;
+            //     outline         : none;
+            // }
         }
     }
 

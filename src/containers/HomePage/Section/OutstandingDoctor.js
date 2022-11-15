@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import * as actions from '../../../store/actions'
 import { LANGUAGES } from '../../../utils';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -32,7 +33,6 @@ class OutstandingDoctor extends Component {
 
 
     handleViewDetailDoctor = (doctor) => {
-        console.log('check value of item', doctor)
         this.props.history.push(`/detail-doctor/${doctor.id}`)
 
     }
@@ -42,21 +42,23 @@ class OutstandingDoctor extends Component {
         let { language } = this.props
         let { arrDoctors } = this.state
         let settings = this.props.settings
-        console.log('check top doctor render :', arrDoctors)
         return (
             <div className='section-share section-outstanding-doctor'>
                 <div className='section-container section-outstanding-doctor'>
                     <div className='section-header'>
                         <span><FormattedMessage id="homePage.outstanding-doctor" />
                         </span>
-                        <button><FormattedMessage id="homePage.more-infor" /></button>
+                        <Link to={`/all-doctor`}
+                        >
+                            <button ><FormattedMessage id="homePage.more-infor" /></button>
+                        </Link>
                     </div>
                     <div className='section-body'>
                         <Slider {...settings}>
                             {arrDoctors && arrDoctors.length > 0 && arrDoctors.map((item, index) => {
                                 let imageBase64 = ''
                                 if (item.image) {
-                                    imageBase64 = new Buffer(item.image, 'base64').toString('binary');
+                                    imageBase64 = Buffer.from(item.image, 'base64').toString('binary');
                                 }
                                 let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName} `
                                 let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`
